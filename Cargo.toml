@@ -1,0 +1,39 @@
+[package]
+name = "tchatche"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "A minimal cluster-membership gossip library with immutable key-values, derived from chitchat."
+rust-version = "1.86"
+
+[dependencies]
+anyhow = "1"
+async-trait = "0.1"
+bytestring = { version = "1", features = ["serde"] }
+itertools = "0.14"
+rand = "0.10"
+serde = { version = "1", features = ["derive", "rc"] }
+tokio = { version = "1.28", features = [
+    "net",
+    "sync",
+    "rt-multi-thread",
+    "macros",
+    "time",
+] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+tracing = "0.1"
+
+[dev-dependencies]
+tracing-subscriber = "0.3"
+proptest = "1"
+tokio = { version = "1.28", features = [
+    "net",
+    "sync",
+    "rt-multi-thread",
+    "macros",
+    "test-util",
+    "time",
+] }
+
+[features]
+testsuite = []
